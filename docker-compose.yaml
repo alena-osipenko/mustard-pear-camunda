@@ -1,0 +1,45 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:11
+    container_name: agrotech_dry_database_debug
+    restart: always
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    command: ["postgres", "-c", "log_statement=${DB_LOG_STATEMENT:-none}"]
+  camunda:
+    image: camunda/camunda-bpm-platform:run-7.13.0
+    container_name: agrotech_dry_camunda_debug
+    restart: always
+    ports:
+      - 9080:8080
+    depends_on:
+      - postgres
+    environment:
+      - DB_DRIVER=org.postgresql.Driver
+      - DB_URL=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${CAMUNDA_DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./rules:/camunda/configuration/resources
+  liquibase:
+    container_name: agrotech_dry_migration_debug
+    image: timbru31/java-node:8-12
+    depends_on:
+      - postgres
+    environment:
+      HOST: ${DB_HOST}
+      PORT: ${DB_PORT}
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      CAMUNDA_DB_NAME: ${CAMUNDA_DB_NAME}
+    volumes:
+      - ../dreamteam-agro-services-database/:/opt/app:cached
+      - /opt/app/node_modules/
+    working_dir: /opt/app
+    command: bash -c "npm install && npm run apply"

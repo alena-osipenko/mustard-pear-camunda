@@ -1,0 +1,24 @@
+{
+  "name": "thrive-core-services-bpmn",
+  "version": "1.0.0",
+  "description": "thrive-core-services-bpmn",
+  "repository": {
+    "type": "git",
+    "url": "git@ssh.dev.azure.com:v3/thrivedetect/LIMS%202.0/thrive-core-services-bpmn"
+  },
+  "devDependencies": {
+    "husky": "4.3.0",
+    "jira-prepare-commit-msg": "1.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "jira-prepare-commit-msg"
+    }
+  },
+  "jira-prepare-commit-msg": {
+    "messagePattern": "[$J]: $M",
+    "jiraTicketPattern": ".+",
+    "isConventionalCommit": false,
+    "allowEmptyCommitMessage": false
+  }
+}

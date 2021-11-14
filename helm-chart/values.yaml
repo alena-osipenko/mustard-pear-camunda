@@ -1,0 +1,16 @@
+image:
+  name: "camunda"
+  repository: "ACR.repo"
+  tag: "dev"
+  dockertag: "version"
+
+deployment:
+  replicas: 1
+
+db:
+  host: "dbhost"
+  port: "5432"
+  name: "camunda"
+
+ingress:
+  host: "externalsite"

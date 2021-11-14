@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="howToDressWrapper" name="How to Dress Wrapper" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.1.1">
+  <decision id="howToDress" name="HowToDress" camunda:versionTag="0.0.1">
+    <decisionTable id="DecisionTable_1iwikol" hitPolicy="FIRST">
+      <input id="Input_1" label="Weather" camunda:inputVariable="weather">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_058j5zd">
+          <text></text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="How to dress" name="howToDress" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_19fgfiq">
+          <text></text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_05kczm7">
+        <inputEntry id="UnaryTests_0kqhv2n">
+          <text>"Sunny"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k9quiy">
+          <text>"T-Shirt"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pdv21j">
+        <inputEntry id="UnaryTests_0evvssh">
+          <text>"Rainy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03dhntp">
+          <text>"Raincoat"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mmrbeo">
+        <inputEntry id="UnaryTests_1c9zcl9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wdf4pk">
+          <text>"Unknown"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="howToDress">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

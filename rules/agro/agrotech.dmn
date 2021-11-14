@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1hko964" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.1">
+  <decision id="Decision_1yu84x6" name="Decision 1">
+    <decisionTable id="DecisionTable_0o3w57n">
+      <input id="Input_1" label="CULTURE" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1x0yign">
+          <text>"potato","cabbage","carrot","beet","cucumber","melon","watermelon","rice"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_13v36s3" label="REGION" biodi:width="192">
+        <inputExpression id="LiteralExpression_17y3y5p" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1c3o2mk">
+          <text>"yoshk","yurin","sernour","volzhsk"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1h5ynmh" label="CONDITION">
+        <inputExpression id="LiteralExpression_1dxa9ze" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mboin8">
+        <inputExpression id="LiteralExpression_0edotu2" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1m300wr">
+        <inputExpression id="LiteralExpression_0n89but" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0qcxd5j">
+        <inputExpression id="LiteralExpression_0gmhip4" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1j6zhn6">
+        <inputExpression id="LiteralExpression_1goifv3" typeRef="string" expressionLanguage="javascript">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" typeRef="string" />
+      <rule id="DecisionRule_0zjujnw">
+        <inputEntry id="UnaryTests_1k2onrg">
+          <text>"potato"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03ea6ve">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xh9msp">
+          <text>if (region["yoshk"].temp &gt;= culture["potato"].temp.from and region["yoshk"].temp &lt;= culture["potato"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05o96ug">
+          <text>if (region["yoshk"].humidity &gt;= culture["potato"].humidity.from and region["yoshk"].humidity &lt;= culture["potato"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e851pp">
+          <text>if (region["yoshk"].precipitation &gt;= culture["potato"].precipitation.from and region["yoshk"].precipitation &lt;= culture["potato"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07z4lp0">
+          <text>if (region["yoshk"].ph &gt;= culture["potato"].ph.from and region["yoshk"].ph &lt;= culture["potato"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kxu9n2">
+          <text>if (region["yoshk"].soil == culture["potato"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18k4c24">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m4a4ja">
+        <inputEntry id="UnaryTests_19klyae">
+          <text>"potato"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0541sez">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13pduzx">
+          <text>if (region["yurin"].temp &gt;= culture["potato"].temp.from and region["yurin"].temp &lt;= culture["potato"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a9fffa">
+          <text>if (region["yurin"].humidity &gt;= culture["potato"].humidity.from and region["yurin"].humidity &lt;= culture["potato"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0buty6v">
+          <text>if (region["yurin"].precipitation &gt;= culture["potato"].precipitation.from and region["yurin"].precipitation &lt;= culture["potato"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jh7b55">
+          <text>if (region["yurin"].ph &gt;= culture["potato"].ph.from and region["yurin"].ph &lt;= culture["potato"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n29j03">
+          <text>if (region["yurin"].soil == culture["potato"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jxj7w2">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z7j77y">
+        <inputEntry id="UnaryTests_02si3sx">
+          <text>"potato"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fc1eu8">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18jtaa7">
+          <text>if (region["sernour"].temp &gt;= culture["potato"].temp.from and region["sernour"].temp &lt;= culture["potato"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00jkv9q">
+          <text>if (region["sernour"].humidity &gt;= culture["potato"].humidity.from and region["sernour"].humidity &lt;= culture["potato"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u3bm3w">
+          <text>if (region["sernour"].precipitation &gt;= culture["potato"].precipitation.from and region["sernour"].precipitation &lt;= culture["potato"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mwnovt">
+          <text>if (region["sernour"].ph &gt;= culture["potato"].ph.from and region["sernour"].ph &lt;= culture["potato"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f0uv7m">
+          <text>if (region["sernour"].soil == culture["potato"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_046snlm">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1n8fym0">
+        <inputEntry id="UnaryTests_01z4uo8">
+          <text>"potato"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0owuqlz">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_066m4ji">
+          <text>if (region["volzhsk"].temp &gt;= culture["potato"].temp.from and region["volzhsk"].temp &lt;= culture["potato"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n0kjs5">
+          <text>if (region["volzhsk"].humidity &gt;= culture["potato"].humidity.from and region["volzhsk"].humidity &lt;= culture["potato"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00ahqmv">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["potato"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["potato"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ewus0a">
+          <text>if (region["volzhsk"].ph &gt;= culture["potato"].ph.from and region["volzhsk"].ph &lt;= culture["potato"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p2hqas">
+          <text>if (region["volzhsk"].soil == culture["potato"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jahlk8">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03kbfx2">
+        <inputEntry id="UnaryTests_18f3jfa">
+          <text>"cabbage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a1p92v">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_175ix6n">
+          <text>if (region["yoshk"].temp &gt;= culture["cabbage"].temp.from and region["yoshk"].temp &lt;= culture["cabbage"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iclg86">
+          <text>if (region["yoshk"].humidity &gt;= culture["cabbage"].humidity.from and region["yoshk"].humidity &lt;= culture["cabbage"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0smm1fy">
+          <text>if (region["yoshk"].precipitation &gt;= culture["cabbage"].precipitation.from and region["yoshk"].precipitation &lt;= culture["cabbage"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ncauf1">
+          <text>if (region["yoshk"].ph &gt;= culture["cabbage"].ph.from and region["yoshk"].ph &lt;= culture["cabbage"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fsas7q">
+          <text>if (region["yoshk"].soil == culture["cabbage"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1363m86">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02zu72k">
+        <inputEntry id="UnaryTests_0d94hl3">
+          <text>"cabbage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09kkqdd">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09bw89o">
+          <text>if (region["yurin"].temp &gt;= culture["cabbage"].temp.from and region["yurin"].temp &lt;= culture["cabbage"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xtvukj">
+          <text>if (region["yurin"].humidity &gt;= culture["cabbage"].humidity.from and region["yurin"].humidity &lt;= culture["cabbage"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_013i9hn">
+          <text>if (region["yurin"].precipitation &gt;= culture["cabbage"].precipitation.from and region["yurin"].precipitation &lt;= culture["cabbage"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wudgw9">
+          <text>if (region["yurin"].ph &gt;= culture["cabbage"].ph.from and region["yurin"].ph &lt;= culture["cabbage"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0swb3y9">
+          <text>if (region["yurin"].soil == culture["cabbage"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mw0r9y">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fsrdz9">
+        <inputEntry id="UnaryTests_1dr1lce">
+          <text>"cabbage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0strmr6">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nryaeo">
+          <text>if (region["sernour"].temp &gt;= culture["cabbage"].temp.from and region["sernour"].temp &lt;= culture["cabbage"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f4oi5p">
+          <text>if (region["sernour"].humidity &gt;= culture["cabbage"].humidity.from and region["sernour"].humidity &lt;= culture["cabbage"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13gvl25">
+          <text>if (region["sernour"].precipitation &gt;= culture["cabbage"].precipitation.from and region["sernour"].precipitation &lt;= culture["cabbage"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13b1io5">
+          <text>if (region["sernour"].ph &gt;= culture["cabbage"].ph.from and region["sernour"].ph &lt;= culture["cabbage"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02zrv6m">
+          <text>if (region["sernour"].soil == culture["cabbage"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0btpel7">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gpmxsh">
+        <inputEntry id="UnaryTests_0j8aap9">
+          <text>"cabbage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11d052j">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nes1f8">
+          <text>if (region["volzhsk"].temp &gt;= culture["cabbage"].temp.from and region["volzhsk"].temp &lt;= culture["cabbage"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ba346e">
+          <text>if (region["volzhsk"].humidity &gt;= culture["cabbage"].humidity.from and region["volzhsk"].humidity &lt;= culture["cabbage"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vu10vl">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["cabbage"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["cabbage"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0550com">
+          <text>if (region["volzhsk"].ph &gt;= culture["cabbage"].ph.from and region["volzhsk"].ph &lt;= culture["cabbage"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w5bhvk">
+          <text>if (region["volzhsk"].soil == culture["cabbage"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a7dbth">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0msa657">
+        <inputEntry id="UnaryTests_0j9d94c">
+          <text>"carrot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v3kdue">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nw0ll9">
+          <text>if (region["yoshk"].temp &gt;= culture["carrot"].temp.from and region["yoshk"].temp &lt;= culture["carrot"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08yr826">
+          <text>if (region["yoshk"].humidity &gt;= culture["carrot"].humidity.from and region["yoshk"].humidity &lt;= culture["carrot"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17t3dnl">
+          <text>if (region["yoshk"].precipitation &gt;= culture["carrot"].precipitation.from and region["yoshk"].precipitation &lt;= culture["carrot"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ydrzrg">
+          <text>if (region["yoshk"].ph &gt;= culture["carrot"].ph.from and region["yoshk"].ph &lt;= culture["carrot"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08anl5k">
+          <text>if (region["yoshk"].soil == culture["carrot"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ot5pq5">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xbt7ih">
+        <inputEntry id="UnaryTests_1nbtz5w">
+          <text>"carrot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c1vgvo">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qjthr9">
+          <text>if (region["yurin"].temp &gt;= culture["carrot"].temp.from and region["yurin"].temp &lt;= culture["carrot"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nfu5xf">
+          <text>if (region["yurin"].humidity &gt;= culture["carrot"].humidity.from and region["yurin"].humidity &lt;= culture["carrot"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cufs5q">
+          <text>if (region["yurin"].precipitation &gt;= culture["carrot"].precipitation.from and region["yurin"].precipitation &lt;= culture["carrot"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mdzbl4">
+          <text>if (region["yurin"].ph &gt;= culture["carrot"].ph.from and region["yurin"].ph &lt;= culture["carrot"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hlege9">
+          <text>if (region["yurin"].soil == culture["carrot"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_161s6vn">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xii9er">
+        <inputEntry id="UnaryTests_0vhdcta">
+          <text>"carrot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wlip1m">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vdmtko">
+          <text>if (region["sernour"].temp &gt;= culture["carrot"].temp.from and region["sernour"].temp &lt;= culture["carrot"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ufqm5y">
+          <text>if (region["sernour"].humidity &gt;= culture["carrot"].humidity.from and region["sernour"].humidity &lt;= culture["carrot"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bb9bj1">
+          <text>if (region["sernour"].precipitation &gt;= culture["carrot"].precipitation.from and region["sernour"].precipitation &lt;= culture["carrot"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lf7o3e">
+          <text>if (region["sernour"].ph &gt;= culture["carrot"].ph.from and region["sernour"].ph &lt;= culture["carrot"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ruwx3">
+          <text>if (region["sernour"].soil == culture["carrot"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g3u99m">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cmtimh">
+        <inputEntry id="UnaryTests_1fmv75d">
+          <text>"carrot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c4lnuj">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zzgr2p">
+          <text>if (region["volzhsk"].temp &gt;= culture["carrot"].temp.from and region["volzhsk"].temp &lt;= culture["carrot"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbfh6l">
+          <text>if (region["volzhsk"].humidity &gt;= culture["carrot"].humidity.from and region["volzhsk"].humidity &lt;= culture["carrot"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qi7p86">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["carrot"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["carrot"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t38xfn">
+          <text>if (region["volzhsk"].ph &gt;= culture["carrot"].ph.from and region["volzhsk"].ph &lt;= culture["carrot"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kam89e">
+          <text>if (region["volzhsk"].soil == culture["carrot"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ra554x">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g9kffx">
+        <inputEntry id="UnaryTests_0l6ueew">
+          <text>"beet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16y36uf">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p7vlnq">
+          <text>if (region["yoshk"].temp &gt;= culture["beet"].temp.from and region["yoshk"].temp &lt;= culture["beet"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10rr0py">
+          <text>if (region["yoshk"].humidity &gt;= culture["beet"].humidity.from and region["yoshk"].humidity &lt;= culture["beet"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3irw0">
+          <text>if (region["yoshk"].precipitation &gt;= culture["beet"].precipitation.from and region["yoshk"].precipitation &lt;= culture["beet"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hiebzk">
+          <text>if (region["yoshk"].ph &gt;= culture["beet"].ph.from and region["yoshk"].ph &lt;= culture["beet"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o42psx">
+          <text>if (region["yoshk"].soil == culture["beet"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ev9x4x">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k6l4zv">
+        <inputEntry id="UnaryTests_10y5rnf">
+          <text>"beet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u64msb">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05757yf">
+          <text>if (region["yurin"].temp &gt;= culture["beet"].temp.from and region["yurin"].temp &lt;= culture["beet"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rp421x">
+          <text>if (region["yurin"].humidity &gt;= culture["beet"].humidity.from and region["yurin"].humidity &lt;= culture["beet"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07jxiid">
+          <text>if (region["yurin"].precipitation &gt;= culture["beet"].precipitation.from and region["yurin"].precipitation &lt;= culture["beet"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cdo6er">
+          <text>if (region["yurin"].ph &gt;= culture["beet"].ph.from and region["yurin"].ph &lt;= culture["beet"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10aqm6q">
+          <text>if (region["yurin"].soil == culture["beet"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dsjzxi">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xiy0yd">
+        <inputEntry id="UnaryTests_1c1xfis">
+          <text>"beet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vqvirt">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r18e1h">
+          <text>if (region["sernour"].temp &gt;= culture["beet"].temp.from and region["sernour"].temp &lt;= culture["beet"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09uhvto">
+          <text>if (region["sernour"].humidity &gt;= culture["beet"].humidity.from and region["sernour"].humidity &lt;= culture["beet"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ltnxhe">
+          <text>if (region["sernour"].precipitation &gt;= culture["beet"].precipitation.from and region["sernour"].precipitation &lt;= culture["beet"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vel1tj">
+          <text>if (region["sernour"].ph &gt;= culture["beet"].ph.from and region["sernour"].ph &lt;= culture["beet"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ecp5ob">
+          <text>if (region["sernour"].soil == culture["beet"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_007jfhj">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vqijax">
+        <inputEntry id="UnaryTests_1i7d2tu">
+          <text>"beet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j5n3ye">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07ax9yr">
+          <text>if (region["volzhsk"].temp &gt;= culture["beet"].temp.from and region["volzhsk"].temp &lt;= culture["beet"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03t12rr">
+          <text>if (region["volzhsk"].humidity &gt;= culture["beet"].humidity.from and region["volzhsk"].humidity &lt;= culture["beet"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nyxrb3">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["beet"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["beet"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f9hko2">
+          <text>if (region["volzhsk"].ph &gt;= culture["beet"].ph.from and region["volzhsk"].ph &lt;= culture["beet"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0djtezf">
+          <text>if (region["volzhsk"].soil == culture["beet"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g7lcwb">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1guxhwp">
+        <inputEntry id="UnaryTests_07v8782">
+          <text>"cucumber"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0egpopi">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0be81nh">
+          <text>if (region["yoshk"].temp &gt;= culture["cucumber"].temp.from and region["yoshk"].temp &lt;= culture["cucumber"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01b6tn6">
+          <text>if (region["yoshk"].humidity &gt;= culture["cucumber"].humidity.from and region["yoshk"].humidity &lt;= culture["cucumber"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0775vmx">
+          <text>if (region["yoshk"].precipitation &gt;= culture["cucumber"].precipitation.from and region["yoshk"].precipitation &lt;= culture["cucumber"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d92ptf">
+          <text>if (region["yoshk"].ph &gt;= culture["cucumber"].ph.from and region["yoshk"].ph &lt;= culture["cucumber"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03styxf">
+          <text>if (region["yoshk"].soil == culture["cucumber"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1igwp28">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18355tz">
+        <inputEntry id="UnaryTests_1lwicaz">
+          <text>"cucumber"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hgn2pj">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ysyhtm">
+          <text>if (region["yurin"].temp &gt;= culture["cucumber"].temp.from and region["yurin"].temp &lt;= culture["cucumber"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gumbmq">
+          <text>if (region["yurin"].humidity &gt;= culture["cucumber"].humidity.from and region["yurin"].humidity &lt;= culture["cucumber"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0utwq77">
+          <text>if (region["yurin"].precipitation &gt;= culture["cucumber"].precipitation.from and region["yurin"].precipitation &lt;= culture["cucumber"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jmzdcu">
+          <text>if (region["yurin"].ph &gt;= culture["cucumber"].ph.from and region["yurin"].ph &lt;= culture["cucumber"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02hw7jh">
+          <text>if (region["yurin"].soil == culture["cucumber"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_123uy9u">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jvu2zz">
+        <inputEntry id="UnaryTests_0bkkjpi">
+          <text>"cucumber"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rr4ex4">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ij3dqd">
+          <text>if (region["sernour"].temp &gt;= culture["cucumber"].temp.from and region["sernour"].temp &lt;= culture["cucumber"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t3uug6">
+          <text>if (region["sernour"].humidity &gt;= culture["cucumber"].humidity.from and region["sernour"].humidity &lt;= culture["cucumber"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nuuccv">
+          <text>if (region["sernour"].precipitation &gt;= culture["cucumber"].precipitation.from and region["sernour"].precipitation &lt;= culture["cucumber"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07knauh">
+          <text>if (region["sernour"].ph &gt;= culture["cucumber"].ph.from and region["sernour"].ph &lt;= culture["cucumber"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14bg1ao">
+          <text>if (region["sernour"].soil == culture["cucumber"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ypn7pq">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1deb69c">
+        <inputEntry id="UnaryTests_089io2f">
+          <text>"cucumber"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fa4cu0">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05b7a25">
+          <text>if (region["volzhsk"].temp &gt;= culture["cucumber"].temp.from and region["volzhsk"].temp &lt;= culture["cucumber"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0galt9r">
+          <text>if (region["volzhsk"].humidity &gt;= culture["cucumber"].humidity.from and region["volzhsk"].humidity &lt;= culture["cucumber"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hicakt">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["cucumber"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["cucumber"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wvhyhh">
+          <text>if (region["volzhsk"].ph &gt;= culture["cucumber"].ph.from and region["volzhsk"].ph &lt;= culture["cucumber"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k8wp1e">
+          <text>if (region["volzhsk"].soil == culture["cucumber"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o98rfm">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gr16y7">
+        <inputEntry id="UnaryTests_020zqgw">
+          <text>"melon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0di96aw">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bkc21b">
+          <text>if (region["yoshk"].temp &gt;= culture["melon"].temp.from and region["yoshk"].temp &lt;= culture["melon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a70ibd">
+          <text>if (region["yoshk"].humidity &gt;= culture["melon"].humidity.from and region["yoshk"].humidity &lt;= culture["melon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jnknz6">
+          <text>if (region["yoshk"].precipitation &gt;= culture["melon"].precipitation.from and region["yoshk"].precipitation &lt;= culture["melon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xxx4g4">
+          <text>if (region["yoshk"].ph &gt;= culture["melon"].ph.from and region["yoshk"].ph &lt;= culture["melon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqnovu">
+          <text>if (region["yoshk"].soil == culture["melon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ghnffg">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hwaoud">
+        <inputEntry id="UnaryTests_0krzvpn">
+          <text>"melon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_168zcgh">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j18xpa">
+          <text>if (region["yurin"].temp &gt;= culture["melon"].temp.from and region["yurin"].temp &lt;= culture["melon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0da3sye">
+          <text>if (region["yurin"].humidity &gt;= culture["melon"].humidity.from and region["yurin"].humidity &lt;= culture["melon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cac0wn">
+          <text>if (region["yurin"].precipitation &gt;= culture["melon"].precipitation.from and region["yurin"].precipitation &lt;= culture["melon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aw0pd1">
+          <text>if (region["yurin"].ph &gt;= culture["melon"].ph.from and region["yurin"].ph &lt;= culture["melon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1laucab">
+          <text>if (region["yurin"].soil == culture["melon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qh128i">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t06z1a">
+        <inputEntry id="UnaryTests_1lc6ndi">
+          <text>"melon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_092kxd1">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_103w4m2">
+          <text>if (region["sernour"].temp &gt;= culture["melon"].temp.from and region["sernour"].temp &lt;= culture["melon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xnfony">
+          <text>if (region["sernour"].humidity &gt;= culture["melon"].humidity.from and region["sernour"].humidity &lt;= culture["melon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lsad4j">
+          <text>if (region["sernour"].precipitation &gt;= culture["melon"].precipitation.from and region["sernour"].precipitation &lt;= culture["melon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07e9vbr">
+          <text>if (region["sernour"].ph &gt;= culture["melon"].ph.from and region["sernour"].ph &lt;= culture["melon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jgcv7q">
+          <text>if (region["sernour"].soil == culture["melon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vjp31o">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w9hpb5">
+        <inputEntry id="UnaryTests_002x9mi">
+          <text>"melon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00h8ryd">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fuitfr">
+          <text>if (region["volzhsk"].temp &gt;= culture["melon"].temp.from and region["volzhsk"].temp &lt;= culture["melon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_054l2zg">
+          <text>if (region["volzhsk"].humidity &gt;= culture["melon"].humidity.from and region["volzhsk"].humidity &lt;= culture["melon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04nxmos">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["melon"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["melon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fgr46i">
+          <text>if (region["volzhsk"].ph &gt;= culture["melon"].ph.from and region["volzhsk"].ph &lt;= culture["melon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u046w8">
+          <text>if (region["volzhsk"].soil == culture["melon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d09s5h">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1omm5ik">
+        <inputEntry id="UnaryTests_0vtrsxy">
+          <text>"watermelon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_000brfw">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0887mxy">
+          <text>if (region["yoshk"].temp &gt;= culture["watermelon"].temp.from and region["yoshk"].temp &lt;= culture["watermelon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jn90d5">
+          <text>if (region["yoshk"].humidity &gt;= culture["watermelon"].humidity.from and region["yoshk"].humidity &lt;= culture["watermelon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17jcq9v">
+          <text>if (region["yoshk"].precipitation &gt;= culture["watermelon"].precipitation.from and region["yoshk"].precipitation &lt;= culture["watermelon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14d3iwh">
+          <text>if (region["yoshk"].ph &gt;= culture["watermelon"].ph.from and region["yoshk"].ph &lt;= culture["watermelon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08071fa">
+          <text>if (region["yoshk"].soil == culture["watermelon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kg8jg1">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pg5kpi">
+        <inputEntry id="UnaryTests_1t31tf8">
+          <text>"watermelon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bffxs2">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06c6484">
+          <text>if (region["yurin"].temp &gt;= culture["watermelon"].temp.from and region["yurin"].temp &lt;= culture["watermelon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f5c6a8">
+          <text>if (region["yurin"].humidity &gt;= culture["watermelon"].humidity.from and region["yurin"].humidity &lt;= culture["watermelon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yj9f3k">
+          <text>if (region["yurin"].precipitation &gt;= culture["watermelon"].precipitation.from and region["yurin"].precipitation &lt;= culture["watermelon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ckv6o3">
+          <text>if (region["yurin"].ph &gt;= culture["watermelon"].ph.from and region["yurin"].ph &lt;= culture["watermelon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ligyjr">
+          <text>if (region["yurin"].soil == culture["watermelon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1euj37f">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1d3rbrj">
+        <inputEntry id="UnaryTests_0kkc9t8">
+          <text>"watermelon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lt4qpr">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ophgpz">
+          <text>if (region["sernour"].temp &gt;= culture["watermelon"].temp.from and region["sernour"].temp &lt;= culture["watermelon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h12uyz">
+          <text>if (region["sernour"].humidity &gt;= culture["watermelon"].humidity.from and region["sernour"].humidity &lt;= culture["watermelon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_097tavw">
+          <text>if (region["sernour"].precipitation &gt;= culture["watermelon"].precipitation.from and region["sernour"].precipitation &lt;= culture["watermelon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1do11na">
+          <text>if (region["sernour"].ph &gt;= culture["watermelon"].ph.from and region["sernour"].ph &lt;= culture["watermelon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l5bitn">
+          <text>if (region["sernour"].soil == culture["watermelon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10ubm06">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zc4i47">
+        <inputEntry id="UnaryTests_0wmdjvn">
+          <text>"watermelon"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11104iw">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j20id1">
+          <text>if (region["volzhsk"].temp &gt;= culture["watermelon"].temp.from and region["volzhsk"].temp &lt;= culture["watermelon"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xle0fl">
+          <text>if (region["volzhsk"].humidity &gt;= culture["watermelon"].humidity.from and region["volzhsk"].humidity &lt;= culture["watermelon"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lx40vl">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["watermelon"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["watermelon"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m84ub3">
+          <text>if (region["volzhsk"].ph &gt;= culture["watermelon"].ph.from and region["volzhsk"].ph &lt;= culture["watermelon"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nbs6ts">
+          <text>if (region["volzhsk"].soil == culture["watermelon"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1biz85m">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1smciid">
+        <inputEntry id="UnaryTests_1y6cexa">
+          <text>"rice"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nlzwxa">
+          <text>"yoshk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0juz510">
+          <text>if (region["yoshk"].temp &gt;= culture["rice"].temp.from and region["yoshk"].temp &lt;= culture["rice"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z49cmw">
+          <text>if (region["yoshk"].humidity &gt;= culture["rice"].humidity.from and region["yoshk"].humidity &lt;= culture["rice"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_149fdqy">
+          <text>if (region["yoshk"].precipitation &gt;= culture["rice"].precipitation.from and region["yoshk"].precipitation &lt;= culture["rice"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xfsc62">
+          <text>if (region["yoshk"].ph &gt;= culture["rice"].ph.from and region["yoshk"].ph &lt;= culture["rice"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ex7cc1">
+          <text>if (region["yoshk"].soil == culture["rice"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qa6u1n">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kmgcui">
+        <inputEntry id="UnaryTests_1gilnc1">
+          <text>"rice"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0edeomq">
+          <text>"yurin"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j01553">
+          <text>if (region["yurin"].temp &gt;= culture["rice"].temp.from and region["yurin"].temp &lt;= culture["rice"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05uzqx7">
+          <text>if (region["yurin"].humidity &gt;= culture["rice"].humidity.from and region["yurin"].humidity &lt;= culture["rice"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d68yax">
+          <text>if (region["yurin"].precipitation &gt;= culture["rice"].precipitation.from and region["yurin"].precipitation &lt;= culture["rice"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_086tbvu">
+          <text>if (region["yurin"].ph &gt;= culture["rice"].ph.from and region["yurin"].ph &lt;= culture["rice"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0erty90">
+          <text>if (region["yurin"].soil == culture["rice"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sj8qo2">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mlq1bj">
+        <inputEntry id="UnaryTests_0koe49u">
+          <text>"rice"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lp9kq5">
+          <text>"sernour"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036hojq">
+          <text>if (region["sernour"].temp &gt;= culture["rice"].temp.from and region["sernour"].temp &lt;= culture["rice"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xeov0k">
+          <text>if (region["sernour"].humidity &gt;= culture["rice"].humidity.from and region["sernour"].humidity &lt;= culture["rice"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0594eok">
+          <text>if (region["sernour"].precipitation &gt;= culture["rice"].precipitation.from and region["sernour"].precipitation &lt;= culture["rice"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p189oe">
+          <text>if (region["sernour"].ph &gt;= culture["rice"].ph.from and region["yurin"].ph &lt;= culture["sernour"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13n0syj">
+          <text>if (region["sernour"].soil == culture["rice"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wa1q79">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0i0a45i">
+        <inputEntry id="UnaryTests_1gx6oeh">
+          <text>"rice"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h8qvo6">
+          <text>"volzhsk"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wou66j">
+          <text>if (region["volzhsk"].temp &gt;= culture["rice"].temp.from and region["volzhsk"].temp &lt;= culture["rice"].temp.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14sfhfa">
+          <text>if (region["volzhsk"].humidity &gt;= culture["rice"].humidity.from and region["volzhsk"].humidity &lt;= culture["rice"].humidity.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h74zk2">
+          <text>if (region["volzhsk"].precipitation &gt;= culture["rice"].precipitation.from and region["volzhsk"].precipitation &lt;= culture["rice"].precipitation.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ftnao">
+          <text>if (region["volzhsk"].ph &gt;= culture["rice"].ph.from and region["yurin"].ph &lt;= culture["volzhsk"].ph.to) then result=+1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10vo0w1">
+          <text>if (region["volzhsk"].soil == culture["rice"].soil) then result=+1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hw8owe">
+          <text>result</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1yu84x6">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

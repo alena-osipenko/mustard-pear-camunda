@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="manageAccessioning_wrapper" name="manageAccessioning wrapper" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <decision id="manageAccessioning" name="manageAccessioning">
+    <decisionTable id="DecisionTable_0mvhmox" hitPolicy="RULE ORDER">
+      <input id="Input_1" label="containerType" biodi:width="237">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>container.type</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ird6ma" label="2dBarcode" biodi:width="543">
+        <inputExpression id="LiteralExpression_1o744zv" typeRef="string">
+          <text>parent.code</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_19rpto0" label="parentType">
+        <inputExpression id="LiteralExpression_16gpkfk" typeRef="string">
+          <text>parent.type</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0o7u2at" label="errorCode" biodi:width="232">
+        <inputExpression id="LiteralExpression_12qc014" typeRef="string">
+          <text>error.code</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1twnqfk" label="expired" biodi:width="961">
+        <inputExpression id="LiteralExpression_18r5hai" typeRef="boolean">
+          <text>true</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1pm8v06" label="reason" name="reason" typeRef="string" biodi:width="514" />
+      <output id="OutputClause_10az63l" label="addedErrorCodes" name="addedErrorCodes" typeRef="string" biodi:width="192" />
+      <output id="OutputClause_0gjm0zg" label="removedErrorCodes" name="removedErrorCodes" typeRef="string" />
+      <output id="OutputClause_09wh68m" label="isManagerReview" name="isManagerReview" typeRef="boolean" />
+      <output id="OutputClause_0fjz6te" label="isDisposal" name="isDisposal" typeRef="boolean" />
+      <output id="OutputClause_1b81hj1" label="warnings" name="warnings" typeRef="string" />
+      <rule id="DecisionRule_0pzudio">
+        <description>Validate 2D barcode</description>
+        <inputEntry id="UnaryTests_0zodxhc">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m1q1pf">
+          <text>if (parent.code != null and parent.code != container.json.initialKitBarcode) then true else false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07whhwk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mvcud2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04jh256">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cyacvy">
+          <text>"InvalidKitBarcode"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1e8rtgw">
+          <text>"2DMM"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q6woue">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zvjo74">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bxovg8">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vmydy4">
+          <text>"2d barcode $parent does not match the expected Kit ID $kit for this container $container"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x6bzt2">
+        <description>This rule is used to remove a "Invalid 2D Barcode" error code when barcode becomes valid</description>
+        <inputEntry id="UnaryTests_009j3vr">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16gipxd">
+          <text>if (parent.code != null and parent.code = container.json.initialKitBarcode) then true else false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xbg6cy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0twvfej">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fg48sm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08303fs">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0z0ou41">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0f2u8v0">
+          <text>"2DMM"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hhohif">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cg8ihc">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rgds1s">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uzneji">
+        <inputEntry id="UnaryTests_0773fs0">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pk13sw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wrwozp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t43ksa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uf4ovu">
+          <text>if (
+            dates.currentDate != null and
+            (dates.collectionDate = null or dates.shipmentScanDate = null or date and time(dates.collectionDate) + duration("PT32H") &lt; date and time(dates.shipmentScanDate))
+            ) then true else false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ekzw02">
+          <text>"StabilityWindowExceeded"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r0h4zy">
+          <text>"SNPS"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m0i8yr">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0el69rb">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07u1mog">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05rsqnu">
+          <text>"Stability Window Exceeded"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12naps9">
+        <inputEntry id="UnaryTests_02e1pf7">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1upgnz9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k7igyp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q07r7s">
+          <text>list contains(error.code, "CLTD")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u9ujj3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nxc5fm">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lrupso">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1inb57d">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0eevzrh">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_12lt3vs">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lbo2zl">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cj9cv4">
+        <inputEntry id="UnaryTests_0k33lae">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09rpllr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1em1iuc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10gfxlm">
+          <text>list contains(error.code, "TEMP")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a2o73z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16cu9sm">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0u1x4rf">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09drphr">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1i2r3b7">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vi4wvz">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lzid7s">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04teb8p">
+        <inputEntry id="UnaryTests_0x3mqy9">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpt0nh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01wru7a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12e83yf">
+          <text>list contains(error.code, "HEMO")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07vqpu4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1013do0">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xf6occ">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c4518v">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mdxukx">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_135n1mj">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1t3at9d">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zs7qqc">
+        <inputEntry id="UnaryTests_03b7wcb">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xsffk3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dspplp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03h8qg5">
+          <text>list contains(error.code, "SMTM")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12guo2i">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04od7bs">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hlentt">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_12naxbw">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1esmh9z">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wgu7xn">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ggygc7">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pj28rk">
+        <inputEntry id="UnaryTests_1lcryz1">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lhrdk2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f90dsy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kagdb2">
+          <text>list contains(error.code, "LVOL")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l765ba">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1exxwcj">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wbtng1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xs115b">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1myitcj">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1iosw33">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0shofiw">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00lw35d">
+        <inputEntry id="UnaryTests_1uefir7">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a7s4o2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01hrbil">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ml8cq">
+          <text>list contains(error.code, "EMDS")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19fj8yl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qukedi">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10fdp5r">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14w7k66">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0645q2v">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zrcw9q">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rgbuzr">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vgjuk6">
+        <inputEntry id="UnaryTests_13nysbs">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xdmr0w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ywxzm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gshrtq">
+          <text>list contains(error.code, "ICON")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06763ur">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u6y2x1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14ymc42">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0gqxwp0">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_173m9qv">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r3xrx1">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0i8bl7w">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17cmllz">
+        <inputEntry id="UnaryTests_1dt8xpu">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wyp7rf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ecqq8l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cfpj46">
+          <text>list contains(error.code, "SPLB")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u6sxhg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jb2ulh">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yrktg4">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wbri45">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09zmaeg">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02yyydk">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0sear9i">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jxu82w">
+        <inputEntry id="UnaryTests_1va4lia">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_113ztdu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14jcmst">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v8p34x">
+          <text>list contains(error.code, "LABL")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yui50f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_197pfbb">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15rp39m">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ol3tev">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xx42cc">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w0tv39">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1njq8pf">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w7ru78">
+        <inputEntry id="UnaryTests_154ghgh">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16wwra2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1us0meo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vp3twz">
+          <text>list contains(error.code, "SPNF")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kszgxs">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wyxfqp">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_081v2nm">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1t042fq">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_12firbb">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kibtx3">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lryo65">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ze1ork">
+        <inputEntry id="UnaryTests_16ccv5p">
+          <text>"STRECK_CELL_FREE_DNA_BCT", "LBGARD_TUBE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_070kte6">
+          <text>if (parent.code = null) then true else false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jzlg9p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wowywm">
+          <text>list contains(error.code, "2DMM")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hlh6ux">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pbdpny">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15ba4gw">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tobhre">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ce78zy">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ys5pii">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ashznd">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u25evv">
+        <inputEntry id="UnaryTests_00uwhug">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l6eh53">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eikgms">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kg5g6w">
+          <text>list contains(error.code, "XDAY")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jd2hsb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19o6j5w">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0iv2geo">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0c0xgus">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rx47rd">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01p19fh">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05qb3jk">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wmjpkw">
+        <inputEntry id="UnaryTests_01q6z8h">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dddswb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h13rmi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kpcut1">
+          <text>list contains(error.code, "TEMP")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k1mijx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p6ppru">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06a66fm">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00jsgva">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dsr0n7">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16ozs7b">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1iv93d5">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01lfx0y">
+        <inputEntry id="UnaryTests_0dbqqq3">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0re7vai">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q60k5v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gcnskr">
+          <text>list contains(error.code, "SNPS")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03biktd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_114azxi">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07ukb1p">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07lci5p">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mjvmnj">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0u4ev39">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0h52d6y">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xqebn2">
+        <inputEntry id="UnaryTests_1fn6kc8">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jgjtn0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0idwns7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l8fbrs">
+          <text>list contains(error.code, "EXPR")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wezec6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hdmu2w">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xvmv4z">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04x2a12">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1l3q4mi">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0k08dkd">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13kzf22">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kubbhz">
+        <inputEntry id="UnaryTests_07nmdwc">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wzn9yi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhti3z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gw4wqu">
+          <text>list contains(error.code, "DKIT")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xqjxg7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05bg82w">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0090h6c">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r588cl">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tlpd4e">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zcdr42">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xhn2py">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wbjxrr">
+        <inputEntry id="UnaryTests_17wmh1k">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_097qpgr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q3fqjj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n46771">
+          <text>list contains(error.code, "INSS")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kactn1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nwaaqj">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_000vxu0">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v3oo83">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xcqoij">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ph6koz">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bsqltp">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16pojw1">
+        <inputEntry id="UnaryTests_1kb9jl9">
+          <text>"ALLIED_KIT", "ALLIED_LBGARD_KIT_V1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00xng4s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u03wv1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vb8ae7">
+          <text>list contains(error.code, "SPNF")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gzhokh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xo4b6t">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1sgal27">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1teejyt">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1htabyd">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07bb5eq">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18x0s7s">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="manageAccessioning">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

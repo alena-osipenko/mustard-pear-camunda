@@ -1,0 +1,6 @@
+apiVersion: v1
+appVersion: "1.0"
+description: Thrive Camunda project
+name: helm-chart
+version: 1.0.0
+
